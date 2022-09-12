@@ -1,4 +1,4 @@
 FROM ubuntu
-COPY counter.sh /usr/bin/local/counter.sh
-RUN chmod +x /usr/bin/local/counter.sh
-CMD ["/usr/bin/local/counter.sh"]
+COPY counter.sh /usr/local/bin/counter.sh
+RUN chmod +x /usr/local/bin/counter.sh
+CMD ["/usr/local/bin/counter.sh"]
