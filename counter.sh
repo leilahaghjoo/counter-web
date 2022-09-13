@@ -1,4 +1,5 @@
 #!/bin/bash
+#count from one
 while true
 do
  i=$(($i+1))
