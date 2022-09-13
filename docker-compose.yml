@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  my_nginx:
+    image: nginx
+    container_name: my_nginx
+     volumes:
+       - app:/usr/share/nginx/html
+    restart: always
+    
+  my_counter:
+     build:
+     image: 
+     volumes-from:
+        - app
+    
+volumes:
+   app: 
+  
+    
