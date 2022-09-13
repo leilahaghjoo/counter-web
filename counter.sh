@@ -2,6 +2,6 @@
 while true
 do
  i=$(($i+1))
- echo $i
+ echo "<br /><center><h1>$i</h1></center>" > /usr/share/nginx/html/index.html
  sleep 1
 done
