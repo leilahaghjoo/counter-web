@@ -3,16 +3,18 @@ version: "3.7"
 services:
   my_nginx:
     image: nginx
-    container_name: mynginx
-     volumes:
-       - app:/usr/share/nginx/html
+    container_name: my_Web
+    volumes:
+      - app:/usr/share/nginx/html
+    ports:
+      - 8080:80
     restart: always
     
   my_counter:
-     build:
-     container_name: mycounter
-     volumes-from:
-        - app
+    build: .
+    container_name: my_CountingApp
+    volumes:
+      - app:/usr/share/nginx/html
     
 volumes:
    app: 
