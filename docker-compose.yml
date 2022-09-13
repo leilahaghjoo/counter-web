@@ -12,6 +12,7 @@ services:
     
   my_counter:
     build: .
+    image: "my_countinapp:${TAG}"
     container_name: my_CountingApp
     volumes:
       - app:/usr/share/nginx/html
