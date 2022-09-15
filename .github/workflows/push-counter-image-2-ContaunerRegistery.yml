@@ -1,9 +1,12 @@
 #it's a test workflow to push my image to container registery to see how it works
-name: Create and publish a Docker image
+name: Create and publish a Docker imag
 
 on:
+
   push:
-    branches: ['release']
+    branches: [ "main" ]
+
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
