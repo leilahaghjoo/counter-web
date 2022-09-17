@@ -62,4 +62,8 @@ jobs:
          #deploy on remote server   
           
       - name: build package on remote server
+        shell: "bash"
+        run: |
+            - sshpass -p "${{ secrets.TESTREMOTE_HOST }}" ssh -o StrictHostKeyChecking=no ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_IP }} "docker login -u $REPO_USER -p $REPO_PASSWORD  $REPO_ADDR ; docker pull $REPO_URL/$REPO_DIR/direct-payment:$TAG ; docker-compse run -d --build "
+         
         
