@@ -64,6 +64,6 @@ jobs:
       - name: build package on remote server
         shell: "bash"
         run: |
-            - sshpass -p "${{ secrets.TESTREMOTE_HOST }}" ssh -o StrictHostKeyChecking=no ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_IP }} "docker login -u leilahaghjoo -p M@hoor13111364  https:// ; docker pull $REPO_URL/$REPO_DIR/direct-payment:$TAG ; docker-compse run -d --build "
+            - sshpass -p "${{ secrets.TESTREMOTE_HOST }}" ssh -o StrictHostKeyChecking=no ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_IP }} "docker login -u leilahaghjoo -p M@hoor13111364  https://ghcr.io ; docker pull ghcr.io/leilahaghjoo/counter-web:main ; docker-compse run -d --build "
          
         
