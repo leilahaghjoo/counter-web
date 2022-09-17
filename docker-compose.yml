@@ -12,7 +12,8 @@ services:
     
   my_counter:
     build: .
-    image: "my_countinapp:${TAG}"
+    #image: "my_countinapp:${TAG}"
+    image: ghcr.io/leilahaghjoo/counter-web:main
     container_name: my_CountingApp
     volumes:
       - app:/usr/share/nginx/html
