@@ -43,3 +43,23 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+          
+     
+      # Copying files and artifacts via SSH
+      - name: Copying files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.TESTREMOTE_HOST }}
+          username: ${{ secrets.TESTREMOTE_USER }}
+          #key: ${{ secrets.SSH_KEY }}
+          #passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+          password: ${{ secrets.TESTREMOTE_PASS }}
+          rm: true
+          source: "docker-compose.yml"
+          target: "/temp"
+          
+         #deploy on remote server   
+          
+      - name: build package on remote server
+        
