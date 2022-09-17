@@ -65,5 +65,5 @@ jobs:
         with:
           hosts: ${{ secrets.TESTREMOTE_HOST }}
           privateKey: ${{ secrets.TESTREMOTE_SSHKEY }}
-          command: docker-sompose -f /home/docker-compse.yml up -d --build
+          command: docker-compose -f /home/docker-compse.yml up -d --build
             
