@@ -58,11 +58,12 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.TESTREMOTE_HOST }} >> ~/.ssh/known_hosts
         
       - name: Deploy with rsync
-        run: rsync -avz ./docker-compose.yml ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_HOST }}:/home
+        run: rsync -avz ./ ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_HOST }}:/home
         
-          
-       #deploy on remote server        
-      - name: build package on remote server
-        shell: "bash"
-        run: |
-            - sshpass -p "${{ secrets.TESTREMOTE_HOST }}" ssh  ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_IP }} "docker-sompose -f /home/docker-compse.yml up -d --build"    
+      - name: deploy on remote server
+        uses: JimCronqvist/action-ssh@master
+        with:
+          hosts: ${{ secrets.TESTREMOTE_HOST }}
+          privateKey: ${{ secrets.TESTREMOTE_SSHKEY }}
+          command: docker-sompose -f /home/docker-compse.yml up -d --build
+            
