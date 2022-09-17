@@ -58,7 +58,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.TESTREMOTE_HOST }} >> ~/.ssh/known_hosts
         
       - name: Deploy with rsync
-        run: rsync -avz ./docker-compose.yml ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_HOST }}:/tmp
+        run: rsync -avz ./docker-compose.yml ${{ secrets.TESTREMOTE_USER }}@${{ secrets.TESTREMOTE_HOST }}:/home
         
           
        #deploy on remote server        
