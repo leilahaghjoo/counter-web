@@ -65,5 +65,5 @@ jobs:
         with:
           hosts: ${{ secrets.TESTREMOTE_HOST }}
           privateKey: ${{ secrets.TESTREMOTE_SSHKEY }}
-          command: docker-compose --rmi -f /home/web-counter/docker-compose.yml down ; sleep 20; docker-compose -f /home/web-counter/docker-compose.yml up -d --build
+          command: docker-compose -f /home/web-counter/docker-compose.yml up -d --build
             
